@@ -103,7 +103,7 @@ export default function ArgumentGraph({ data, width = 500, height = 440 }: Props
     const sim = d3.forceSimulation(nodes as d3.SimulationNodeDatum[])
       .force('link', d3.forceLink(links).id((d: d3.SimulationNodeDatum) => (d as GraphNode).id).distance(d => {
         const edge = d as GraphEdge
-        return edge.type === 'member' ? 90 : edge.type === 'consensus' ? 70 : 80
+        return edge.type === 'member' ? 90 : 80
       }).strength(0.45))
       .force('charge', d3.forceManyBody().strength(-260))
       .force('center', d3.forceCenter(width / 2, height / 2).strength(0.07))
